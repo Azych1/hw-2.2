@@ -23,16 +23,20 @@ public class Hufflepuff extends Hogwarts {
                 '}';
     }
 
+    public String compareWith(Hogwarts pupil) {
+        return compareWith((Hufflepuff) pupil);
+    }
+
     public String compareWith(Gryffindor pupil) {
         return "У них разные факультеты!";
     }
 
     public String compareWith(Hufflepuff pupil) {
-        if ((this.getTransgress()+this.getMagic()+this.getHonesty()+this.getIndustriousness()+this.getLoyalty())>
-                (pupil.getTransgress()+pupil.getMagic()+pupil.getHonesty()+pupil.getIndustriousness()+pupil.getLoyalty())){
-            return this.getName()+" лучший Пуффендуец, чем "+pupil.getName();
+        if ((this.getTransgress() + this.getMagic() + this.getHonesty() + this.getIndustriousness() + this.getLoyalty()) >
+                (pupil.getTransgress() + pupil.getMagic() + pupil.getHonesty() + pupil.getIndustriousness() + pupil.getLoyalty())) {
+            return this.getName() + " лучший Пуффендуец, чем " + pupil.getName();
         } else {
-            return pupil.getName()+" лучший Пуффендуец, чем "+this.getName();
+            return pupil.getName() + " лучший Пуффендуец, чем " + this.getName();
         }
     }
 
@@ -44,50 +48,78 @@ public class Hufflepuff extends Hogwarts {
         return "У них разные факультеты!";
     }
 
-    public String compareByMagicAndTransgressionWith(Gryffindor pupil){
+    public String compareByMagicAndTransgressionWith(Hogwarts pupil) {
+        Gryffindor gryffindor = new Gryffindor("1", 1, 1, 1, 1, 1);
+        Hufflepuff hufflepuff = new Hufflepuff("1", 1, 1, 1, 1, 1);
+        Ravenclaw ravenclaw = new Ravenclaw("1", 1, 1, 1, 1, 1, 1);
+        Slytherin slytherin = new Slytherin("1", 1, 1, 1, 1, 1, 1, 1);
+
+        if (pupil.getClass() == gryffindor.getClass()) {
+            return compareByMagicAndTransgressionWith((Gryffindor) pupil);
+        } else if (pupil.getClass() == hufflepuff.getClass()) {
+            return compareByMagicAndTransgressionWith((Hufflepuff) pupil);
+        } else if (pupil.getClass() == ravenclaw.getClass()) {
+            return compareByMagicAndTransgressionWith((Ravenclaw) pupil);
+        } else {
+            return compareByMagicAndTransgressionWith((Slytherin) pupil);
+        }
+    }
+
+    public String compareByMagicAndTransgressionWith(Gryffindor pupil) {
         if (this.getMagic() > pupil.getMagic() && this.getTransgress() > pupil.getTransgress()) {
-            return this.getName()+" обладает большей мощностью магии и трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает большей мощностью магии и трансгрессии чем " + pupil.getName();
         } else if (this.getMagic() > pupil.getMagic() && this.getTransgress() < pupil.getTransgress()) {
-            return this.getName()+" обладает большей мощностью магии, но меньшей мощностью трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает большей мощностью магии, но меньшей мощностью трансгрессии чем " + pupil.getName();
         } else if (this.getMagic() < pupil.getMagic() && this.getTransgress() > pupil.getTransgress()) {
             return this.getName() + " обладает меньшей мощностью магии, но большей мощностью трансгрессии чем " + pupil.getName();
         } else {
-            return this.getName()+" обладает меньшей мощностью магии и трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает меньшей мощностью магии и трансгрессии чем " + pupil.getName();
         }
-    };
-    public String compareByMagicAndTransgressionWith(Hufflepuff pupil){
+    }
+
+    ;
+
+    public String compareByMagicAndTransgressionWith(Hufflepuff pupil) {
         if (this.getMagic() > pupil.getMagic() && this.getTransgress() > pupil.getTransgress()) {
-            return this.getName()+" обладает большей мощностью магии и трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает большей мощностью магии и трансгрессии чем " + pupil.getName();
         } else if (this.getMagic() > pupil.getMagic() && this.getTransgress() < pupil.getTransgress()) {
-            return this.getName()+" обладает большей мощностью магии, но меньшей мощностью трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает большей мощностью магии, но меньшей мощностью трансгрессии чем " + pupil.getName();
         } else if (this.getMagic() < pupil.getMagic() && this.getTransgress() > pupil.getTransgress()) {
             return this.getName() + " обладает меньшей мощностью магии, но большей мощностью трансгрессии чем " + pupil.getName();
         } else {
-            return this.getName()+" обладает меньшей мощностью магии и трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает меньшей мощностью магии и трансгрессии чем " + pupil.getName();
         }
-    };
-    public String compareByMagicAndTransgressionWith(Ravenclaw pupil){
+    }
+
+    ;
+
+    public String compareByMagicAndTransgressionWith(Ravenclaw pupil) {
         if (this.getMagic() > pupil.getMagic() && this.getTransgress() > pupil.getTransgress()) {
-            return this.getName()+" обладает большей мощностью магии и трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает большей мощностью магии и трансгрессии чем " + pupil.getName();
         } else if (this.getMagic() > pupil.getMagic() && this.getTransgress() < pupil.getTransgress()) {
-            return this.getName()+" обладает большей мощностью магии, но меньшей мощностью трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает большей мощностью магии, но меньшей мощностью трансгрессии чем " + pupil.getName();
         } else if (this.getMagic() < pupil.getMagic() && this.getTransgress() > pupil.getTransgress()) {
             return this.getName() + " обладает меньшей мощностью магии, но большей мощностью трансгрессии чем " + pupil.getName();
         } else {
-            return this.getName()+" обладает меньшей мощностью магии и трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает меньшей мощностью магии и трансгрессии чем " + pupil.getName();
         }
-    };
-    public String compareByMagicAndTransgressionWith(Slytherin pupil){
+    }
+
+    ;
+
+    public String compareByMagicAndTransgressionWith(Slytherin pupil) {
         if (this.getMagic() > pupil.getMagic() && this.getTransgress() > pupil.getTransgress()) {
-            return this.getName()+" обладает большей мощностью магии и трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает большей мощностью магии и трансгрессии чем " + pupil.getName();
         } else if (this.getMagic() > pupil.getMagic() && this.getTransgress() < pupil.getTransgress()) {
-            return this.getName()+" обладает большей мощностью магии, но меньшей мощностью трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает большей мощностью магии, но меньшей мощностью трансгрессии чем " + pupil.getName();
         } else if (this.getMagic() < pupil.getMagic() && this.getTransgress() > pupil.getTransgress()) {
             return this.getName() + " обладает меньшей мощностью магии, но большей мощностью трансгрессии чем " + pupil.getName();
         } else {
-            return this.getName()+" обладает меньшей мощностью магии и трансгрессии чем "+pupil.getName();
+            return this.getName() + " обладает меньшей мощностью магии и трансгрессии чем " + pupil.getName();
         }
-    };
+    }
+
+    ;
 
 
     public int getIndustriousness() {

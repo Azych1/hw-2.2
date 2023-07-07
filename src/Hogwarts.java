@@ -9,19 +9,19 @@ public abstract class Hogwarts {
         this.transgress = transgress;
     }
 
-
     public abstract String toString();
 
+    public abstract String compareWith(Hogwarts pupil);
     public abstract String compareWith(Gryffindor pupil);
     public abstract String compareWith(Hufflepuff pupil);
     public abstract String compareWith(Ravenclaw pupil);
     public abstract String compareWith(Slytherin pupil);
 
+    public abstract String compareByMagicAndTransgressionWith(Hogwarts pupil);
     public abstract String compareByMagicAndTransgressionWith(Gryffindor pupil);
     public abstract String compareByMagicAndTransgressionWith(Hufflepuff pupil);
     public abstract String compareByMagicAndTransgressionWith(Ravenclaw pupil);
     public abstract String compareByMagicAndTransgressionWith(Slytherin pupil);
-
 
     public String getName() {
         return name;
