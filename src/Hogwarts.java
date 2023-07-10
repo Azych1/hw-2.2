@@ -1,49 +1,50 @@
 public abstract class Hogwarts {
     private String name;
-    private int magic;
-    private int transgress;
 
-    public Hogwarts(String name, int magic, int transgress) {
+    private String surname;
+
+    private int magic;
+
+    private int transgression;
+
+    public Hogwarts(String name, String surname, int magic, int transgression) {
         this.name = name;
+        this.surname = surname;
         this.magic = magic;
-        this.transgress = transgress;
+        this.transgression = transgression;
     }
 
-    public abstract String toString();
-
-    public abstract String compareWith(Hogwarts pupil);
-    public abstract String compareWith(Gryffindor pupil);
-    public abstract String compareWith(Hufflepuff pupil);
-    public abstract String compareWith(Ravenclaw pupil);
-    public abstract String compareWith(Slytherin pupil);
-
-    public abstract String compareByMagicAndTransgressionWith(Hogwarts pupil);
-    public abstract String compareByMagicAndTransgressionWith(Gryffindor pupil);
-    public abstract String compareByMagicAndTransgressionWith(Hufflepuff pupil);
-    public abstract String compareByMagicAndTransgressionWith(Ravenclaw pupil);
-    public abstract String compareByMagicAndTransgressionWith(Slytherin pupil);
+    @Override
+    public String toString() {
+        return "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", magic=" + magic +
+                ", transgression=" + transgression;
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getSurname() {
+        return surname;
     }
 
-    public int getMagic() {
-        return magic;
+    public void compareTo(Hogwarts other) {
+        int countThis = this.magic + this.transgression;
+        int countOther = other.magic + other.transgression;
+
+        if (countThis > countOther) {
+            printComparableStudent(this, other);
+        } else if (countThis < countOther) {
+            printComparableStudent(this, other);
+        } else {
+            System.out.println("Студенты одинаково сильны");
+        }
     }
 
-    public void setMagic(int magic) {
-        this.magic = magic;
-    }
-
-    public int getTransgress() {
-        return transgress;
-    }
-
-    public void setTransgress(int transgress) {
-        this.transgress = transgress;
+    private void printComparableStudent(Hogwarts bestStudent, Hogwarts worseStudent) {
+        System.out.println(bestStudent.getName() + "" + bestStudent.getSurname() +
+                " лучший студент Хогвартса чем " + worseStudent.getName() + worseStudent.getSurname());
     }
 }
